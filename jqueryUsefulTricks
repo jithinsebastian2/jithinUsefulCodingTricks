@@ -18,8 +18,8 @@ function getValidContactNumber(selectedNumbers,callBack){
 	var correctdNumbers = [];
 	if(selectedNumbers.length > 0){
 		for(var i =0;i<selectedNumbers.length;i++){
-			selectedNumbers[i] = selectedNumbers[i].replace(/[^a-z\d\s]+/gi, "");
-			selectedNumbers[i] = selectedNumbers[i].replace(/\D/g,'')	
+			selectedNumbers[i] = selectedNumbers[i].replace(/[^a-z\d\s]+/gi, ""); //removing special characters and spcaes 
+			selectedNumbers[i] = selectedNumbers[i].replace(/\D/g,''); //for replace spaces between numbers	
 			selectedNumbers[i] = selectedNumbers[i].trim();
 			if(selectedNumbers[i].length > 10){					
 				if(selectedNumbers[i][0] == 9){
@@ -33,10 +33,47 @@ function getValidContactNumber(selectedNumbers,callBack){
 					selectedNumbers[i] = (selectedNumbers[i]).replace(selectedNumbers[i][0],"");																						
 				}
 			}
-			selectedNumbers[i] = selectedNumbers[i].trim();
+			selectedNumbers[i] = selectedNumbers[i].trim();  //removing spaces from both eng of the number string
 			correctdNumbers.push(selectedNumbers[i]);
 		}
 		if(callBack)
 			callBack(correctdNumbers);
 	}	
  }
+ 
+ ||*******hasOwnProperty()**********|| --->> only for OBJECTS
+ 
+ hasOwnProperty returns a boolean value indicating whether the object on which you are calling it has a property with the name of the argument. 
+ For example:
+ 
+ var x = {
+    y: 10
+};
+console.log(x.hasOwnProperty("y")); //true
+console.log(x.hasOwnProperty("z")); //false
+
+||**********prop()****************||
+
+The prop() method sets or returns properties and values of the selected elements.
+
+When this method is used to return the property value, it returns the value of the FIRST matched element.
+
+When this method is used to set property values, it sets one or more property/value pairs for the set of matched elements.
+
+Note: The prop() method should be used to retrieve property values, e.g. DOM properties (like tagName, nodeName, defaultChecked) or your own custom made properties.
+
+Tip: To retrieve HTML attributes, use the attr() method instead.
+
+Tip: To remove a property use the removeProp() method.
+
+Eg:
+
+$(document).ready(function(){
+    $("button").click(function(){
+        var $x = $("div");
+        $x.prop("color", "FF0000");
+        $x.append("The color property has the following value: " + $x.prop("color"));
+        $x.removeProp("color");
+        $x.append("<br>Now the color property has the following value: " + $x.prop("color"));
+    });
+});
