@@ -11,3 +11,32 @@ Eg :
     console.log("is NOT in array");
   }
   OUTPUT : is in array
+
+||**********10 digit Mobile Number Validation from an array contain more than one number(selectedNumbers[])***********||
+
+function getValidContactNumber(selectedNumbers,callBack){
+	var correctdNumbers = [];
+	if(selectedNumbers.length > 0){
+		for(var i =0;i<selectedNumbers.length;i++){
+			selectedNumbers[i] = selectedNumbers[i].replace(/[^a-z\d\s]+/gi, "");
+			selectedNumbers[i] = selectedNumbers[i].replace(/\D/g,'')	
+			selectedNumbers[i] = selectedNumbers[i].trim();
+			if(selectedNumbers[i].length > 10){					
+				if(selectedNumbers[i][0] == 9){
+					selectedNumbers[i] = selectedNumbers[i].replace(selectedNumbers[i][0],"");					
+				}else if(selectedNumbers[i][0] == 0){
+					selectedNumbers[i] = selectedNumbers[i].replace(selectedNumbers[i][0],"");								
+				}																					                      
+				if(selectedNumbers[i][0] == 1){
+					selectedNumbers[i] = (selectedNumbers[i]).replace(selectedNumbers[i][0],"");							
+				}else if(selectedNumbers[i][0] == 0){																			
+					selectedNumbers[i] = (selectedNumbers[i]).replace(selectedNumbers[i][0],"");																						
+				}
+			}
+			selectedNumbers[i] = selectedNumbers[i].trim();
+			correctdNumbers.push(selectedNumbers[i]);
+		}
+		if(callBack)
+			callBack(correctdNumbers);
+	}	
+ }
