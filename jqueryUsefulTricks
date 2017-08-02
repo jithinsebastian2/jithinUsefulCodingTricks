@@ -1,1 +1,13 @@
 
+||*********inArray()******||
+
+Used to find an element is there or not in an array
+Eg : 
+  var myarray = [];
+  myarray.push("test");
+  if($.inArray("test", myarray)!= -1) {
+    console.log("is in array");
+  } else {
+    console.log("is NOT in array");
+  }
+  OUTPUT : is in array
