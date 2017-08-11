@@ -77,3 +77,9 @@ $(document).ready(function(){
         $x.append("<br>Now the color property has the following value: " + $x.prop("color"));
     });
 });
+
+||*******************REMOVAL ARRAY VALES REPETATION ******************||
+var correctedNumbers = [12,13,12,14];
+var uniqueNumberArray = correctedNumbers.filter(function(elem, index, self) {
+	return index == self.indexOf(elem);																	
+});	
