@@ -82,4 +82,16 @@ $(document).ready(function(){
 var correctedNumbers = [12,13,12,14];
 var uniqueNumberArray = correctedNumbers.filter(function(elem, index, self) {
 	return index == self.indexOf(elem);																	
-});	
+});
+
+||****************FIND PARENT AND CHILD OF A SELECTOR*****************************||
+
+Eg:
+
+Making framework7 smart select all options as checked 'false'
+
+   $( ".smart-select-page" ).parent().find('input[type=radio]').prop("checked",false);	
+
+Removing a particular option based on id and value :
+
+   $("#hcp-city option[value='-2']").remove();
